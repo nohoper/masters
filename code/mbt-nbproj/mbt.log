@@ -1,0 +1,6 @@
+ERROR - java.lang.NullPointerException
+	at org.tigris.mbt.Util.readWSPort(Util.java:699)
+	at org.tigris.mbt.CLI.RunCommandSoap(CLI.java:823)
+	at org.tigris.mbt.CLI.run(CLI.java:234)
+	at org.tigris.mbt.CLI.main(CLI.java:134)
+

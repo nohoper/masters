@@ -175,7 +175,7 @@ public class Main {
             population = gaEngine.makeNextPopulation(population);
             System.gc();
 
-            if (iteration > 100)
+            if (iteration > 200)
             break;
 
 //            System.out.println("done it with attempts: " + attempt++);

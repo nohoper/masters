@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import efsmtestgen.mbt.ActionExecuter;
 import efsmtestgen.mbt.FixedPathGenerator;
 import efsmtestgen.mbt.PathDescription;
-import efsmtestgen.mbt.PathDescriptionKMU20;
+import efsmtestgen.mbt.PathDescriptionKMU5;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,10 +44,10 @@ public class Main {
 
     private final static int POPULATION_SIZE = 1024;
 
-    private final static Class pathClass = PathDescriptionKMU20.class;
+    private final static Class pathClass = PathDescriptionKMU5.class;
 
 //    private final static int MAX_VALUE = PathDescriptionKMU20.MAX_VALUE;
-    private final static int MAX_VALUE = PathDescriptionKMU20.MAX_VALUE;
+    private final static int MAX_VALUE = PathDescriptionKMU5.MAX_VALUE;
     /**
      * @param args the command line arguments
      */

@@ -17,6 +17,7 @@ public class PathDescriptionKMU5 implements PathDescription {
     public final static String filename = "../graphs/kmu_atm_efsm.graphml";
 
     public static int varsNum = 7;
+    public static int MAX_VALUE = 50000;
 
     private int unsuccessfullSteps = -1;
 

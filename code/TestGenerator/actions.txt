@@ -1,0 +1,13 @@
+ext_sum_; today = 0;
+ext_x_;
+ext_sum -= ext_x; today += ext_x;
+ext_x_;
+ext_sum -= ext_x; today += ext_x;
+ext_x_;
+ext_sum -= ext_x; today += ext_x;
+ext_x_;
+ext_sum -= ext_x; today += ext_x;
+ext_x_;
+ext_sum -= ext_x; today += ext_x;
+ext_x_;
+

@@ -12,6 +12,7 @@ import bsh.UtilEvalError;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map.Entry;
@@ -161,6 +162,22 @@ public class ActionExecuter implements IActionExecuter {
         }
         return res;
     }
+
+    public List<String> getSettedVars() {
+        return settedVars;
+    }
+
+    public List<String> azGetLastVarNamesList() {
+        if (lastEngineInst == null || lastEngineInst.getNameSpace() == null) {
+            ArrayList<String> tmp = new ArrayList<String>();
+            tmp.add("no last engine found");
+            return tmp;
+        }
+        String[] namesArr = lastEngineInst.getNameSpace().getVariableNames();
+        return Arrays.asList(namesArr);
+    }
+
+    
 }
 
 

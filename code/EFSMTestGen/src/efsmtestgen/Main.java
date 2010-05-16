@@ -51,6 +51,7 @@ public class Main {
     private final static int POPULATION_SIZE = 1024;
 
     private final static int MAX_VALUE = 50000;
+    private static List<String> lastSettedVarNames;
     /**
      * @param args the command line arguments
      */
@@ -102,7 +103,7 @@ public class Main {
                     MBTActionExecuter.setExecEngine(engine);
                     MBTActionExecuter.resetFitness();
                     cli.getMbt().enableExtended(true);
-                    PathGenerator pathGenerator = new FixedPathGenerator(new PathDescriptionConsole(args[0], pathString, 7));
+                    PathGenerator pathGenerator = new FixedPathGenerator(new PathDescriptionConsole(args[0], pathString, path.getVarsNum()));
                     cli.getMbt().setGenerator(pathGenerator);
                     boolean res = cli.getMbt().writePath();
                     //                    BigDecimal bd = new BigDecimal(pathGenerator.getConditionFulfilment());
@@ -136,6 +137,7 @@ public class Main {
                             bestVarsList.add(t);
                         }
                         bestVarsEngineState = engine.azPrintLastInfo();
+                        lastSettedVarNames = engine.azGetLastVarNamesList();
                     }
                     engine.resetSettedVars();
                 }
@@ -147,7 +149,7 @@ public class Main {
                 //            engine.printSettedVars();
                 if (best_percent_filfulled >= 0.99) {
                     System.out.println("condition filfulled!!!!!!!");
-                    writeVarsToFile(bestVarsList, MBTActionExecuter.getEventsList());
+                    writeVarsToFile(bestVarsList, MBTActionExecuter.getEventsList(), MBTActionExecuter.getActionsList(), lastSettedVarNames);
                     return;
                 }
                 if (summary_fitness <= 0.1) {
@@ -172,7 +174,7 @@ public class Main {
 
     }
 
-    private static void writeVarsToFile(List<Integer> varsList, List<String> eventsList) {
+    private static void writeVarsToFile(List<Integer> varsList, List<String> eventsList, List<String> actionList, List<String> settedVars) {
         FileWriter fw = null;
         try {
             fw = new FileWriter("variables.txt");
@@ -187,6 +189,23 @@ public class Main {
             bw = new BufferedWriter(fw);
             for (String item : eventsList) {
                 bw.write("" + item + " ");
+            }
+            bw.newLine();
+            bw.close();
+
+            fw = new FileWriter("actions.txt");
+            bw = new BufferedWriter(fw);
+            for (String item : actionList) {
+                bw.write(item);
+                bw.newLine();
+            }
+            bw.newLine();
+            bw.close();
+
+            fw = new FileWriter("settedVars.txt");
+            bw = new BufferedWriter(fw);
+            for (String item : settedVars) {
+                bw.write(item + " ");
             }
             bw.newLine();
             bw.close();

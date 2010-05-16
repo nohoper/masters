@@ -147,7 +147,7 @@ public class Main {
                 //            engine.printSettedVars();
                 if (best_percent_filfulled >= 0.99) {
                     System.out.println("condition filfulled!!!!!!!");
-                    writeVarsToFile(bestVarsList);
+                    writeVarsToFile(bestVarsList, MBTActionExecuter.getEventsList());
                     return;
                 }
                 if (summary_fitness <= 0.1) {
@@ -172,14 +172,23 @@ public class Main {
 
     }
 
-    private static void writeVarsToFile(List<Integer> bestVarsList) {
+    private static void writeVarsToFile(List<Integer> varsList, List<String> eventsList) {
         FileWriter fw = null;
         try {
             fw = new FileWriter("variables.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (int item : bestVarsList) {
+            for (int item : varsList) {
                 bw.write("" + item + " ");
             }
+            bw.newLine();
+            bw.close();
+
+            fw = new FileWriter("events.txt");
+            bw = new BufferedWriter(fw);
+            for (String item : eventsList) {
+                bw.write("" + item + " ");
+            }
+            bw.newLine();
             bw.close();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

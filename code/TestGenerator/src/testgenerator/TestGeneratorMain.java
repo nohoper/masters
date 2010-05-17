@@ -88,31 +88,60 @@ public class TestGeneratorMain {
             bw.write("public class GeneratedTest {");
             bw.newLine();
             for (String name : varNames) {
-                bw.write("private static int " + name + ";");
+                bw.write("private /*@ spec_public @*/ static int " + name + " = 0;");
                 bw.newLine();
             }
             bw.newLine();
 
-            for (String item : actionList) {
-                bw.write("private static void step" + (stepNum++) + "() {");
-                bw.newLine();
+            String item = actionList.remove(0);
+            while (item != null) {
+                if (!item.startsWith("@")) {
+                    bw.write("public static void step" + (stepNum++) + "() {");
+                    bw.newLine();
 
 
-                StringTokenizer tokenizer = new StringTokenizer(item, ";");
-                while (tokenizer.hasMoreTokens()) {
-                    String statement = tokenizer.nextToken();
-                    statement = handleStatement(statement);
-                    bw.write(TAB + statement + ";");
+                    StringTokenizer tokenizer = new StringTokenizer(item, ";");
+                    while (tokenizer.hasMoreTokens()) {
+                        String statement = tokenizer.nextToken();
+                        statement = handleStatement(statement);
+                        bw.write(TAB + statement + ";");
+                        bw.newLine();
+                    }
+
+
+
+                    bw.newLine();
+                    bw.write("}");
+                    bw.newLine();
+                    bw.newLine();
+                    if (!actionList.isEmpty()) {
+                        item = actionList.remove(0);
+                    } else {
+                        item = null;
+                    }
+                } else { //JML contracts for transition
+                    bw.write("/*" + item);
+                    bw.newLine();
+                    while (true) {
+                        if (!actionList.isEmpty()) {
+                            item = actionList.remove(0);
+                            if (item.startsWith("@")) {
+                                bw.write("  " + item);
+                                bw.newLine();
+                            } else {
+                                break;
+                            }
+                        } else {
+                            item = null;
+                            break;
+                        }
+                    }
+
+                    bw.write("  @*/");
                     bw.newLine();
                 }
-                
-
-
-                bw.newLine();
-                bw.write("}");
-                bw.newLine();
-                bw.newLine();
             }
+            
             bw.newLine();
             bw.newLine();
 

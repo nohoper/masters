@@ -1,13 +1,20 @@
+@ ensures ext_sum >=0 && ext_sum < 100000;
 ext_sum_; today = 0;
+@ ensures ext_x >= 1000 && ext_x <= 15000;
 ext_x_;
 ext_sum -= ext_x; today += ext_x;
+@ ensures ext_x >= 1000 && ext_x <= 15000;
 ext_x_;
 ext_sum -= ext_x; today += ext_x;
+@ ensures ext_x >= 1000 && ext_x <= 15000;
 ext_x_;
 ext_sum -= ext_x; today += ext_x;
+@ ensures ext_x >= 1000 && ext_x <= 15000;
 ext_x_;
 ext_sum -= ext_x; today += ext_x;
+@ ensures ext_x >= 1000 && ext_x <= 15000;
 ext_x_;
 ext_sum -= ext_x; today += ext_x;
+@ ensures ext_x >= 1000 && ext_x <= 15000;
 ext_x_;
 

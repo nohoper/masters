@@ -88,7 +88,7 @@ public class TestGeneratorMain {
             bw.write("public class GeneratedTest {");
             bw.newLine();
             for (String name : varNames) {
-                bw.write("private /*@ spec_public @*/ static int " + name + " = 0;");
+                bw.write("private /*@ spec_public @*/ int " + name + " = 0;");
                 bw.newLine();
             }
             bw.newLine();
@@ -96,7 +96,7 @@ public class TestGeneratorMain {
             String item = actionList.remove(0);
             while (item != null) {
                 if (!item.startsWith("@")) {
-                    bw.write("public static void step" + (stepNum++) + "() {");
+                    bw.write("public void transition" + (stepNum++) + "() {");
                     bw.newLine();
 
 
@@ -147,8 +147,10 @@ public class TestGeneratorMain {
 
             bw.write("public static void main(String[] args) {");
             bw.newLine();
+            bw.write(TAB + "GeneratedTest test = new GeneratedTest();");
+            bw.newLine();
             for (int i =1; i < stepNum; ++i) {
-                bw.write(TAB + "step" + i + "();");
+                bw.write(TAB + "test.transition" + i + "();");
                 bw.newLine();
             }
             bw.write("}");

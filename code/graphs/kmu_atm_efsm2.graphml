@@ -36,11 +36,11 @@
     <node id="n2">
       <data key="d3">
         <y:ShapeNode>
-          <y:Geometry height="53.8525390625" width="168.0" x="73.0" y="92.962890625"/>
+          <y:Geometry height="53.8525390625" width="197.0" x="58.5" y="92.962890625"/>
           <y:Fill color="#FFCC00" color2="#FFFF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.62109375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="187.41552734375" x="-9.707763671875" y="9.61572265625">s1_WAIT
-@ invariant today &lt;= 50000;</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.62109375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="191.52880859375" x="2.735595703125" y="9.61572265625">s1_WAIT
+@ invariant  today &lt;= 50000;</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
           <y:DropShadow color="#B3A691" offsetX="1" offsetY="1"/>
         </y:ShapeNode>
@@ -74,8 +74,8 @@
           <y:Path sx="0.0" sy="15.0" tx="0.0" ty="-26.926269531249986"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="287.154296875" x="2.0" y="10.125">t1_e0 / ext_sum_; today = 0;
-@ ensures ext_sum &gt;=0 &amp;&amp; ext_sum &lt; 100000;</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="290.951171875" x="2.0" y="10.125">t1_e0 / ext_sum_; today = 0;
+@ ensures  ext_sum &gt;=0 &amp;&amp; ext_sum &lt; 100000;</y:EdgeLabel>
           <y:BendStyle smoothed="true"/>
         </y:PolyLineEdge>
       </data>
@@ -137,7 +137,7 @@
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="165.806640625" x="-9.580895269948087" y="28.143370275611517">t4_e2 [0 - ext_sum - ext_x]</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="168.40234375" x="-10.878746832448087" y="28.143370275611517">t4_e2 [0 - ext_sum + ext_x]</y:EdgeLabel>
           <y:Arc height="-1.010642170906067" ratio="-0.019538449123501778" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
@@ -175,8 +175,8 @@
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="280.849609375" x="2.0" y="62.346381544265085">t2_e1 / ext_x_;
-@ ensures ext_x &gt;= 1000 &amp;&amp; ext_x &lt;= 15000;</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="284.646484375" x="2.0" y="62.346381544265085">t2_e1 / ext_x_;
+@ ensures  ext_x &gt;= 1000 &amp;&amp; ext_x &lt;= 15000;</y:EdgeLabel>
           <y:Arc height="0.0" ratio="0.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>

@@ -109,9 +109,6 @@ public class Main {
                     //                    BigDecimal bd = new BigDecimal(pathGenerator.getConditionFulfilment());
                     //                    BigDecimal bd = new BigDecimal(1.0 / ((float) MBTActionExecuter.getFitness()) );
                     float branch_distance = (float) MBTActionExecuter.getFitness(); //==branch distance
-                    if (branch_distance == 0) {
-                        System.out.println("fitness is 0!!!! : " + branch_distance);
-                    }
                     double percent_filfulled = pathGenerator.getConditionFulfilment();
                     BigDecimal bd;
                     if (branch_distance == 0) {
@@ -146,12 +143,20 @@ public class Main {
                 System.out.println("Filfulled steps: " + best_percent_filfulled);
                 System.out.println("Min fitness: " + min_fitness + "(raw:" + best_raw_fitness + ", weigthed:" + best_weighted_fitness + ") : " + bestVarsList);
                 System.out.println("Eng state: " + bestVarsEngineState);
-                //            engine.printSettedVars();
+                
                 if (best_percent_filfulled >= 0.99) {
                     System.out.println("condition filfulled!!!!!!!");
                     writeVarsToFile(bestVarsList, MBTActionExecuter.getEventsList(), MBTActionExecuter.getActionsList(), lastSettedVarNames);
                     return;
                 }
+
+                if (best_raw_fitness == 0) {
+                    System.out.println("fitness is 0!!!! : ");
+                    System.out.println("condition filfulled!!!!!!!");
+                    writeVarsToFile(bestVarsList, MBTActionExecuter.getEventsList(), MBTActionExecuter.getActionsList(), lastSettedVarNames);
+                    return;
+                }
+
                 if (summary_fitness <= 0.1) {
                     int r = 0;
                 }

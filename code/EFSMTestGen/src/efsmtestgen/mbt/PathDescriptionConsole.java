@@ -47,9 +47,6 @@ public class PathDescriptionConsole implements PathDescription {
             unsuccessfullSteps = path2go.size();
         }
         double res = ((double)(path.length - (unsuccessfullSteps - 1))) / ((double)path.length);
-//        if (res > 1) {
-//            int t = 0;
-//        }
         unsuccessfullSteps = -1;
         return res;
     }
@@ -68,7 +65,7 @@ public class PathDescriptionConsole implements PathDescription {
 
     public void stopCountionSuccessfulSteps() {
         if (unsuccessfullSteps < 0) {
-            unsuccessfullSteps = path2go.size();
+            unsuccessfullSteps = path2go.size() + 1; //need to plus one step that was right now failed
 //            if (unsuccessfullSteps < 2) {
 //                int t = 0;
 //            }
